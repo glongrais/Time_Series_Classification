@@ -32,17 +32,17 @@ The first step is to load the data from the original dataset. As mention is the 
 ### Data Visualisation
 
 A first plot is used to simply see the raw data and their associated label.  
-![raw data plot](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/raw_data.png)  
+![raw data plot](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/raw_data.png)  
 
 Then I checked if the data was properly distrubuted between the classes.
 
-![nb occurences plot](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/nbOcc.png)  
-![raw data plot](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/totalLen.png)  
+![nb occurences plot](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/nbOcc.png)  
+![raw data plot](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/totalLen.png)  
 
 As we can see some activities were performed more times than some other ones (Activity 1 compared to Actvity 2 or 3). But when we look at the total time spent to perform the activities its more equitable, so no real need to weitgh the classes.  
 
 Lastly, the repartition of the different classes across the candidate is chacked to make sure that the activities are well distributed all over the dataset.  
-![Activities distribution](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/actDist.png)  
+![Activities distribution](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/actDist.png)  
 
 ### Dataset Preparation 
 
@@ -60,21 +60,21 @@ The size of the window is defined according to the length of recording it repres
 I first tried to train with an LSTM as its a model developped for this kind of cases. It can easily find dependencies from sequence.
 I performed hyperparameters tuning on the number of units in the LSTM layer (from 32 to 256) and on the dropout value (from 0.2 to 0.5).
 With this model the training accuracy can be very high (aboce 0.97) but the validation accuracy stay between 0.60 and 0.65.  
-![LSTM Results](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/LSTM_result.png) 
+![LSTM Results](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/LSTM_result.png) 
 
 ### CNN
 
 According to this [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7026300), a special CNN architecture provide good results for human activities recognition. The architecture is defined as the following:  
-![CNN Architecture](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/cnn_architecture.png)  
+![CNN Architecture](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/cnn_architecture.png)  
 
-![CNN Results](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/CNN_result.png) 
+![CNN Results](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/CNN_result.png) 
 
 ### CNN-LSTM
 
 Then I tried with a CNN-LSTM where some features will be first extracted by the CNN, and then the LSTM will learn how to classify from these features. I performed hyperparameters tuning on the number of units in the LSTM layer (from 32 to 256), the dropout value (from 0.2 to 0.5) after the LSTM layer and the number of filters in the Conv layers (32 or 64).
 I observed kinda the same results than with the LSTM.
 
-![CNN-LSTM Results](https://github.com/glongrais/ml-recruitment/blob/glongrais/Figures/CNN-LSTM_result.png) 
+![CNN-LSTM Results](https://github.com/glongrais/Time_Series_Classification/blob/main/Figures/CNN-LSTM_result.png) 
 
 ## Conclusion 
 
